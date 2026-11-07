@@ -1,0 +1,8 @@
+<RCC>
+  <qresource prefix="/">
+    <file>Main.qml</file>
+  </qresource>
+  <qresource prefix="/i18n">
+    <file alias="ko.json">i18n/ko.json</file>
+  </qresource>
+</RCC>

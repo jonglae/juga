@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Juga · Korean Stocks
+Name[ko]=주가 · 한국 주식
+Comment=Live Korean stock prices and confirmed trading
+Comment[ko]=한국 주식 실시간 시세와 주문
+Exec=juga
+Icon=juga
+Terminal=false
+Categories=Finance;Office;
+StartupWMClass=juga

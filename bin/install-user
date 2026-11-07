@@ -1,0 +1,14 @@
+#!/bin/sh
+set -eu
+ROOT="$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)"
+"$ROOT/bin/build"
+install -Dm755 "$ROOT/build/juga" "$HOME/.local/bin/juga"
+install -Dm644 "$ROOT/pkgbuild/juga.svg" "$HOME/.local/share/icons/hicolor/scalable/apps/juga.svg"
+desktop_tmp="$(mktemp)"
+trap 'rm -f "$desktop_tmp"' EXIT
+sed "s|^Exec=juga$|Exec=$HOME/.local/bin/juga|" "$ROOT/pkgbuild/juga.desktop" > "$desktop_tmp"
+install -Dm644 "$desktop_tmp" "$HOME/.local/share/applications/juga.desktop"
+if command -v update-desktop-database >/dev/null 2>&1; then
+    update-desktop-database "$HOME/.local/share/applications"
+fi
+echo "Installed Juga for this user."
